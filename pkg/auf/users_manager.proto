@@ -6,6 +6,7 @@ option go_package = "./";
 service AuthService {
   rpc Register (RegisterRequest) returns (RegisterResponse);
   rpc Login (LoginRequest) returns (LoginResponse);
+  rpc ValidateToken (Token) returns (IsValid);
 }
 
 message RegisterRequest {
@@ -24,4 +25,12 @@ message LoginRequest {
 
 message LoginResponse {
   string token = 1;
+}
+
+message Token {
+  string token = 1;
+}
+
+message IsValid {
+  bool isValid = 1;
 }
